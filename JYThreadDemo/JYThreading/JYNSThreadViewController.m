@@ -31,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *catImageView;
 
+@property (nonatomic, strong) NSThread *thread;
+
 @end
 
 @implementation JYNSThreadViewController
@@ -54,8 +56,7 @@
     
     // m3
     NSThread *mainThread = [NSThread mainThread];
-//    NSThread *currentThread = [NSThread currentThread];
-    [self performSelector:@selector(downloadPicture:) onThread:mainThread withObject:nil waitUntilDone:YES];//   you should not use the method for time critical or frequent communication between threads 最好不要在紧急的时间节点或需频繁进行线程处理时调用该方法
+    [self performSelector:@selector(downloadPicture:) onThread:mainThread withObject:nil waitUntilDone:YES];//   you should not use the method for time critical or frequent communication between threads 最好不要在紧急的时间节点或需频繁进行线程处理时调用该方法 ?: 所以其实我也不是很懂生命时候会用到这个，如果是在主线程，performSelectorOnMainThread跟这个有什么区别
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,11 +67,39 @@
 // 加载图片
 - (IBAction)loadPictureAction:(id)sender {
     [self loadingImageView: self.imageView];
-//    [self performSelectorInBackground:@selector(downloadPicture:) withObject:FLOWER_URL];
-    NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadPicture:) object:FLOWER_URL];
-    [thread start];
+//    NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadPicture:) object:FLOWER_URL];
+//    [thread start];
+    
+    // 线程状态  isExecuting 正在执行 isFinished 执行完毕 isCancel 是否取消
+    // 线程开启后，执行cancel后 isExecuting YES; isCancel YES; isFinished NO // isExecuting为什么为YES
+    // 再点击加载图片 isExecuting YES;isCancel NO; isFinished NO
+    if ([self.thread isExecuting]) {
+        return;
+    }
+    
+    self.thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadPicture:) object:FLOWER_URL];
+    [self.thread start];
 }
-// 加载图片
+- (IBAction)cancelLoadPictureAction:(id)sender {
+    [self.thread cancel];
+//    [NSThread exit]; // 点击取消加载按钮则界面会停止响应  分析： 应为是在主线程中执行，那如何在self.thread中执行呢
+    //  When you detach new thread, These UI specific methods execute only on main thread so the exit/cancel applies to the main thread which is obviously wrong. --stackoverflow
+    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//        [NSThread exit];
+//    });
+    
+//    [NSThread detachNewThreadSelector:@selector(exitThread) toTarget:self withObject:nil];
+
+}
+
+// stackoverflow中 http://stackoverflow.com/questions/7401268/how-to-cancel-or-stop-nsthread?rq=1 Maulik 说可以使用[NSThread exit]
+// "It seems like you exit from mainthread maybe. But check adding of subviews, may be you just use wrong object" ? 仍旧无法理解如何使用exit 停止线程，并且exit官方文档说是终止当前线程，所以思路应该是先获取到self.thread，然后再进行操作，可是这要怎么实现呢
+
+- (void)exitThread {
+    [NSThread exit];
+}
+// 加载图片－Cat
 - (IBAction)loadAnotherPictureAction:(id)sender {
     [self loadingImageView: self.catImageView];
     [NSThread detachNewThreadSelector:@selector(downloadPicture:) toTarget:self withObject:CAT_URL];

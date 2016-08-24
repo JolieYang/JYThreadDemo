@@ -25,29 +25,6 @@
                                     <constraint firstAttribute="width" constant="200" id="ecL-Vj-eTl"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="UEU-ub-uqR">
-                                <rect key="frame" x="60" y="274" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="8rz-i0-UnJ"/>
-                                    <constraint firstAttribute="height" constant="260" id="zgN-5a-YMu"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="8rz-i0-UnJ"/>
-                                        <exclude reference="zgN-5a-YMu"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM8-cu-5Ap">
-                                <rect key="frame" x="16" y="482" width="288" height="30"/>
-                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="加载图片">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loadAnotherPictureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FSJ-Yf-UfS"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiA-X2-B3s">
                                 <rect key="frame" x="16" y="236" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,24 +38,61 @@
                                     <action selector="loadPictureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lKr-1O-bNm"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="UEU-ub-uqR">
+                                <rect key="frame" x="60" y="314" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="8rz-i0-UnJ"/>
+                                    <constraint firstAttribute="height" constant="260" id="zgN-5a-YMu"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8rz-i0-UnJ"/>
+                                        <exclude reference="zgN-5a-YMu"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM8-cu-5Ap">
+                                <rect key="frame" x="16" y="522" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="加载图片">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadAnotherPictureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FSJ-Yf-UfS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0k-dt-U5L">
+                                <rect key="frame" x="16" y="274" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="取消加载">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelLoadPictureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wpi-E3-0Fe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aiA-X2-B3s" firstAttribute="top" secondItem="Wrm-Li-lbm" secondAttribute="bottom" constant="8" symbolic="YES" id="1eA-Y7-dT2"/>
+                            <constraint firstItem="O0k-dt-U5L" firstAttribute="height" secondItem="aiA-X2-B3s" secondAttribute="height" id="4Fb-xd-5Dz"/>
                             <constraint firstItem="aiA-X2-B3s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6Dx-cA-ffh"/>
                             <constraint firstItem="Wrm-Li-lbm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="6Nw-ms-rJP"/>
+                            <constraint firstItem="O0k-dt-U5L" firstAttribute="leading" secondItem="aiA-X2-B3s" secondAttribute="leading" id="8Gd-gO-e05"/>
                             <constraint firstItem="IM8-cu-5Ap" firstAttribute="top" secondItem="UEU-ub-uqR" secondAttribute="bottom" constant="8" id="B6m-bh-oOT"/>
                             <constraint firstItem="aiA-X2-B3s" firstAttribute="top" secondItem="Wrm-Li-lbm" secondAttribute="bottom" constant="8" id="CgC-ax-afz"/>
                             <constraint firstItem="aiA-X2-B3s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DsX-XM-J2X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IM8-cu-5Ap" secondAttribute="trailing" id="GDL-dX-0es"/>
+                            <constraint firstItem="O0k-dt-U5L" firstAttribute="trailing" secondItem="aiA-X2-B3s" secondAttribute="trailing" id="Hbx-k6-nJB"/>
                             <constraint firstItem="aiA-X2-B3s" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Io4-jP-QYO"/>
                             <constraint firstItem="Wrm-Li-lbm" firstAttribute="centerX" secondItem="aiA-X2-B3s" secondAttribute="centerX" id="V2o-aL-bQo"/>
+                            <constraint firstItem="O0k-dt-U5L" firstAttribute="top" secondItem="aiA-X2-B3s" secondAttribute="bottom" constant="8" id="a59-P6-tvw"/>
                             <constraint firstItem="UEU-ub-uqR" firstAttribute="height" secondItem="Wrm-Li-lbm" secondAttribute="height" id="dOI-Z6-9k7"/>
                             <constraint firstItem="Wrm-Li-lbm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="g1g-Wg-I7i"/>
                             <constraint firstItem="aiA-X2-B3s" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="iNE-we-zOU"/>
                             <constraint firstItem="UEU-ub-uqR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l5c-A7-uGL"/>
                             <constraint firstItem="IM8-cu-5Ap" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pu3-8J-wMs"/>
-                            <constraint firstItem="UEU-ub-uqR" firstAttribute="top" secondItem="aiA-X2-B3s" secondAttribute="bottom" constant="8" id="qf7-uR-QAj"/>
+                            <constraint firstItem="UEU-ub-uqR" firstAttribute="top" secondItem="aiA-X2-B3s" secondAttribute="bottom" constant="48" id="qf7-uR-QAj"/>
                             <constraint firstItem="UEU-ub-uqR" firstAttribute="width" secondItem="Wrm-Li-lbm" secondAttribute="width" id="vB2-A0-ke3"/>
                         </constraints>
                         <variation key="default">
