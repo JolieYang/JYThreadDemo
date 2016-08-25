@@ -75,6 +75,8 @@
     if ([[NSThread currentThread] isCancelled]) {
         NSLog(@"exit thread:%@", [NSThread currentThread]);
         [NSThread exit];// "一旦退出就不能再使用start开启。"上网看的这句话，感觉有些奇怪的一句话，一个线程只能start一次，重复start只会崩溃啊。讲的令我以为如果不是退出，比如是cancel就可以再使用start继续线程的感觉。  ?2.[todo] 文档中提到该方法并不会回收在执行过程中分配的内存和资源。那eixt跟cancel的区别在哪里呢
+        // 资料：http://www.cocoachina.com/bbs/read.php?tid=50702   不建意使用exit这种方法，通过标志位判断进行线程中止比较合适。一般写多线程的程序，比如线程代码较多，本应该在在线程代码中多写判断的代码。
+        NSLog(@"exit aaaa");// ps: 测试了下这句以及后面的已经不会执行了，因而执行完exit不用多次一举再写个return
         return;
     }
     

@@ -23,6 +23,9 @@
 
 // 小结: NSThread中其中本身提供的API不多也不复杂。但是...
 
+// Question List:
+// ?1. 仍旧无法理解如何使用exit 停止线程，并且exit官方文档说是终止当前线程，所以思路应该是先获取到self.thread，然后再进行操作，可是这要怎么实现呢
+
 #import "JYNSThreadViewController.h"
 
 #define FLOWER_URL @"http://img.blog.csdn.net/20160822174348226" // 图片比较大，1M多
@@ -101,7 +104,7 @@
 }
 
 // stackoverflow中 http://stackoverflow.com/questions/7401268/how-to-cancel-or-stop-nsthread?rq=1 Maulik 说可以使用[NSThread exit]
-// "It seems like you exit from mainthread maybe. But check adding of subviews, may be you just use wrong object" ? 仍旧无法理解如何使用exit 停止线程，并且exit官方文档说是终止当前线程，所以思路应该是先获取到self.thread，然后再进行操作，可是这要怎么实现呢
+// "It seems like you exit from mainthread maybe. But check adding of subviews, may be you just use wrong object" ?1 仍旧无法理解如何使用exit 停止线程，并且exit官方文档说是终止当前线程，所以思路应该是先获取到self.thread，然后再进行操作，可是这要怎么实现呢
 
 - (void)exitThread {
     [NSThread exit];
