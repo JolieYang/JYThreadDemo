@@ -21,6 +21,8 @@
 // -main [todo] ?? 也不是很懂
 // [toread] http://blog.csdn.net/jiantiantian/article/details/13622821 http://blog.sina.com.cn/s/blog_7b9d64af01019j2n.html  --23rd,August,2016
 
+// 小结: NSThread中其中本身提供的API不多也不复杂。但是...
+
 #import "JYNSThreadViewController.h"
 
 #define FLOWER_URL @"http://img.blog.csdn.net/20160822174348226" // 图片比较大，1M多
@@ -66,13 +68,18 @@
 
 // 加载图片
 - (IBAction)loadPictureAction:(id)sender {
-    [self loadingImageView: self.imageView];
-//    NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadPicture:) object:FLOWER_URL];
-//    [thread start];
+    [self setloadingImageView: self.imageView];
     
     // 线程状态  isExecuting 正在执行 isFinished 执行完毕 isCancel 是否取消
-    // 线程开启后，执行cancel后 isExecuting YES; isCancel YES; isFinished NO // isExecuting为什么为YES
+    // 线程开启后(start), isExecuting YES; isCancelled NO; isFinished NO/YES
+    // 在未执行完线程后，执行cancel后 isExecuting YES; isCancel YES; isFinished NO // isExecuting为什么为YES
+    // 看网上资料说,cancel只是标志为而已，猜测是将isCancel标为YES。ps: 不用猜测了，文档里写着调用该方法会修改cancel的状态以及表明该线程应用退出(exit)
     // 再点击加载图片 isExecuting YES;isCancel NO; isFinished NO
+    if ([[NSThread currentThread] isCancelled]) {
+        NSLog(@"exit");
+        [NSThread exit];
+    }
+    
     if ([self.thread isExecuting]) {
         return;
     }
@@ -101,11 +108,11 @@
 }
 // 加载图片－Cat
 - (IBAction)loadAnotherPictureAction:(id)sender {
-    [self loadingImageView: self.catImageView];
+    [self setloadingImageView: self.catImageView];
     [NSThread detachNewThreadSelector:@selector(downloadPicture:) toTarget:self withObject:CAT_URL];
 }
 
-- (void)loadingImageView:(UIImageView *)imageView {
+- (void)setloadingImageView:(UIImageView *)imageView {
     imageView.image = [UIImage imageNamed:@"loading_image"];
 }
 

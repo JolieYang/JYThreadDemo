@@ -14,6 +14,7 @@
 		A067F0281D6AF563003140D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A067F0271D6AF563003140D6 /* Assets.xcassets */; };
 		A067F02B1D6AF563003140D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A067F0291D6AF563003140D6 /* LaunchScreen.storyboard */; };
 		A067F0341D6AF631003140D6 /* JYNSThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067F0331D6AF631003140D6 /* JYNSThreadViewController.m */; };
+		A067F03D1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067F03C1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		A067F02C1D6AF563003140D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A067F0321D6AF631003140D6 /* JYNSThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYNSThreadViewController.h; path = JYThreading/JYNSThreadViewController.h; sourceTree = "<group>"; };
 		A067F0331D6AF631003140D6 /* JYNSThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYNSThreadViewController.m; path = JYThreading/JYNSThreadViewController.m; sourceTree = "<group>"; };
+		A067F03B1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYThreadLoadMutiImageViewController.h; path = JYThreading/JYThreadLoadMutiImageViewController.h; sourceTree = "<group>"; };
+		A067F03C1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYThreadLoadMutiImageViewController.m; path = JYThreading/JYThreadLoadMutiImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 			children = (
 				A067F0321D6AF631003140D6 /* JYNSThreadViewController.h */,
 				A067F0331D6AF631003140D6 /* JYNSThreadViewController.m */,
+				A067F03B1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.h */,
+				A067F03C1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.m */,
 			);
 			name = JYThreading;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			files = (
 				A067F0341D6AF631003140D6 /* JYNSThreadViewController.m in Sources */,
 				A067F0231D6AF563003140D6 /* ViewController.m in Sources */,
+				A067F03D1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.m in Sources */,
 				A067F0201D6AF563003140D6 /* AppDelegate.m in Sources */,
 				A067F01D1D6AF563003140D6 /* main.m in Sources */,
 			);
