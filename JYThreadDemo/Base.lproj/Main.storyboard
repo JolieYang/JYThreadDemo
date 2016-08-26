@@ -13,7 +13,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="erT-ep-i9Z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -48,7 +47,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loadPictureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ry1-PH-I8Z"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="ogJ-xU-8Eh"/>
                                 </connections>
                             </button>
@@ -65,10 +63,25 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loadPictureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v28-6O-ocw"/>
                                     <segue destination="ELZ-rQ-zvK" kind="show" id="3OH-0w-wUk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bcs-mX-xhk">
+                                <rect key="frame" x="16" y="232" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="加载单张图片">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="PyI-x5-GJG" kind="show" id="eQ0-t7-rKm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NSOperation:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wea-A6-nKg">
+                                <rect key="frame" x="16" y="203" width="104" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -77,8 +90,10 @@
                             <constraint firstItem="hLC-6N-vOm" firstAttribute="trailing" secondItem="zpX-7t-Abm" secondAttribute="trailing" id="NdQ-vD-1pZ"/>
                             <constraint firstItem="zpX-7t-Abm" firstAttribute="top" secondItem="TTX-xd-86R" secondAttribute="bottom" constant="8" id="PnX-1J-E8C"/>
                             <constraint firstItem="TTX-xd-86R" firstAttribute="leading" secondItem="qwf-g6-d0y" secondAttribute="leadingMargin" id="Sjp-gI-Lym"/>
+                            <constraint firstItem="wea-A6-nKg" firstAttribute="leading" secondItem="qwf-g6-d0y" secondAttribute="leadingMargin" id="X9L-4c-QZD"/>
                             <constraint firstItem="hLC-6N-vOm" firstAttribute="leading" secondItem="zpX-7t-Abm" secondAttribute="leading" id="cdH-KR-3RG"/>
                             <constraint firstItem="zpX-7t-Abm" firstAttribute="trailing" secondItem="qwf-g6-d0y" secondAttribute="trailingMargin" id="pUp-5M-knC"/>
+                            <constraint firstItem="wea-A6-nKg" firstAttribute="top" secondItem="hLC-6N-vOm" secondAttribute="bottom" constant="22" id="pgO-pT-VDe"/>
                             <constraint firstItem="hLC-6N-vOm" firstAttribute="top" secondItem="zpX-7t-Abm" secondAttribute="bottom" constant="8" id="xDZ-ki-8n4"/>
                         </constraints>
                     </view>
@@ -195,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="-648"/>
+            <point key="canvasLocation" x="683" y="-1134"/>
         </scene>
         <!--加载多张图片-->
         <scene sceneID="FsD-ln-Vvg">
@@ -425,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDq-H3-EEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="-36"/>
+            <point key="canvasLocation" x="683" y="-521"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wN7-4X-kaz">
@@ -444,7 +459,103 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQM-7D-uvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="602"/>
+            <point key="canvasLocation" x="683" y="725"/>
+        </scene>
+        <!--加载一张图片-->
+        <scene sceneID="62C-18-kx1">
+            <objects>
+                <viewController id="PyI-x5-GJG" customClass="JYNSOperationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3zd-AY-QU1"/>
+                        <viewControllerLayoutGuide type="bottom" id="QSN-0Y-8gk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Cp-e7-A2i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="48S-3e-RXo">
+                                <rect key="frame" x="70" y="84" width="180" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="GxL-2e-IwT"/>
+                                    <constraint firstAttribute="width" constant="180" id="his-kE-kTF"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33a-X5-YTR">
+                                <rect key="frame" x="16" y="262" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DBK-6k-hSo"/>
+                                </constraints>
+                                <state key="normal" title="InvocationOperation加载图片">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="invocationOperationLoadPictureAction:" destination="PyI-x5-GJG" eventType="touchUpInside" id="tLO-Xw-Xqc"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="MRo-hl-zV5">
+                                <rect key="frame" x="70" y="340" width="180" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="aMf-5E-pg2"/>
+                                    <constraint firstAttribute="width" constant="250" id="oJn-BW-iU9"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="oJn-BW-iU9"/>
+                                        <exclude reference="aMf-5E-pg2"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7im-u7-jJq">
+                                <rect key="frame" x="16" y="518" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="BlockOperation加载图片">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="blockOperationLoadPictureAction:" destination="PyI-x5-GJG" eventType="touchUpInside" id="tCb-dV-2F7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7im-u7-jJq" firstAttribute="leading" secondItem="8Cp-e7-A2i" secondAttribute="leadingMargin" id="32G-6D-ljK"/>
+                            <constraint firstItem="48S-3e-RXo" firstAttribute="leading" secondItem="8Cp-e7-A2i" secondAttribute="leadingMargin" id="7fH-pB-r79"/>
+                            <constraint firstItem="48S-3e-RXo" firstAttribute="top" secondItem="3zd-AY-QU1" secondAttribute="bottom" constant="20" id="9Lc-Vh-Na0"/>
+                            <constraint firstItem="MRo-hl-zV5" firstAttribute="width" secondItem="48S-3e-RXo" secondAttribute="width" id="MDb-7G-kio"/>
+                            <constraint firstItem="33a-X5-YTR" firstAttribute="top" secondItem="48S-3e-RXo" secondAttribute="bottom" constant="8" id="XR3-Gh-OvE"/>
+                            <constraint firstItem="33a-X5-YTR" firstAttribute="centerX" secondItem="8Cp-e7-A2i" secondAttribute="centerX" id="byz-4F-07U"/>
+                            <constraint firstItem="MRo-hl-zV5" firstAttribute="height" secondItem="48S-3e-RXo" secondAttribute="height" id="ex6-2o-izb"/>
+                            <constraint firstItem="MRo-hl-zV5" firstAttribute="centerX" secondItem="8Cp-e7-A2i" secondAttribute="centerX" id="hif-dw-KeV"/>
+                            <constraint firstItem="7im-u7-jJq" firstAttribute="top" secondItem="MRo-hl-zV5" secondAttribute="bottom" constant="8" id="oDy-go-h5N"/>
+                            <constraint firstItem="33a-X5-YTR" firstAttribute="trailing" secondItem="8Cp-e7-A2i" secondAttribute="trailingMargin" id="of9-5w-8sq"/>
+                            <constraint firstItem="33a-X5-YTR" firstAttribute="centerY" secondItem="8Cp-e7-A2i" secondAttribute="centerY" id="s19-7q-1FD"/>
+                            <constraint firstItem="33a-X5-YTR" firstAttribute="leading" secondItem="8Cp-e7-A2i" secondAttribute="leadingMargin" id="svx-wP-wi1"/>
+                            <constraint firstItem="48S-3e-RXo" firstAttribute="centerX" secondItem="33a-X5-YTR" secondAttribute="centerX" id="tDG-Fa-nkO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7im-u7-jJq" secondAttribute="trailing" id="uDT-xQ-U2Z"/>
+                            <constraint firstItem="33a-X5-YTR" firstAttribute="top" secondItem="48S-3e-RXo" secondAttribute="bottom" constant="8" symbolic="YES" id="vv2-I0-h2k"/>
+                            <constraint firstItem="MRo-hl-zV5" firstAttribute="top" secondItem="33a-X5-YTR" secondAttribute="bottom" constant="48" id="zKf-Tv-gVa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7fH-pB-r79"/>
+                                <exclude reference="vv2-I0-h2k"/>
+                                <exclude reference="s19-7q-1FD"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="加载一张图片" id="XRa-Vs-Fpg"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="blockBtn" destination="7im-u7-jJq" id="JZn-Z1-OJw"/>
+                        <outlet property="imageView" destination="48S-3e-RXo" id="FYa-sO-w8i"/>
+                        <outlet property="invocationBtn" destination="33a-X5-YTR" id="00U-D5-UlP"/>
+                        <outlet property="secondImageView" destination="MRo-hl-zV5" id="Xab-hO-Swn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLv-hx-5cY" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="683" y="97"/>
         </scene>
     </scenes>
     <resources>
