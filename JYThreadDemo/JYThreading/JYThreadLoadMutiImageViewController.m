@@ -11,6 +11,8 @@
 // ?1. 好奇什么时候使用NSThread优于其他两个。经常看到的就是NSThread相对于其他两个轻量，轻量了然后带来了什么呢
 // ?2. 文档中提到该方法并不会回收在执行过程中分配的内存和资源。那eixt跟cancel的区别在哪里呢
 
+// 小结：反正用NSThread我个人的感觉是体验真的很不好，第一，线程生命周期需自己管理，但仍然无法很好的控制。第二， 比如cancel中断了一个线程，想线程重启，发现并没有相关的API，提供的操作也很有限啊， 要你何用啊NSThread. 好奇什么时候使用NSThread优于其他两个。经常看到的就是NSThread相对于其他两个轻量，轻量了然后带来了什么呢。 25th,August,2016
+
 #import "JYThreadLoadMutiImageViewController.h"
 
 @implementation JYImageData

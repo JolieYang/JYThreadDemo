@@ -16,6 +16,7 @@
 		A067F0341D6AF631003140D6 /* JYNSThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067F0331D6AF631003140D6 /* JYNSThreadViewController.m */; };
 		A067F03D1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067F03C1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.m */; };
 		A067F0411D6FE99F003140D6 /* JYNSOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067F0401D6FE99F003140D6 /* JYNSOperationViewController.m */; };
+		A067F0441D701DC2003140D6 /* JYOperationLoadMultImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067F0431D701DC2003140D6 /* JYOperationLoadMultImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		A067F03C1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYThreadLoadMutiImageViewController.m; path = JYThreading/JYThreadLoadMutiImageViewController.m; sourceTree = "<group>"; };
 		A067F03F1D6FE99F003140D6 /* JYNSOperationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYNSOperationViewController.h; path = JYOperation/JYNSOperationViewController.h; sourceTree = "<group>"; };
 		A067F0401D6FE99F003140D6 /* JYNSOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYNSOperationViewController.m; path = JYOperation/JYNSOperationViewController.m; sourceTree = "<group>"; };
+		A067F0421D701DC2003140D6 /* JYOperationLoadMultImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYOperationLoadMultImageViewController.h; path = JYOperation/JYOperationLoadMultImageViewController.h; sourceTree = "<group>"; };
+		A067F0431D701DC2003140D6 /* JYOperationLoadMultImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYOperationLoadMultImageViewController.m; path = JYOperation/JYOperationLoadMultImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 			children = (
 				A067F03F1D6FE99F003140D6 /* JYNSOperationViewController.h */,
 				A067F0401D6FE99F003140D6 /* JYNSOperationViewController.m */,
+				A067F0421D701DC2003140D6 /* JYOperationLoadMultImageViewController.h */,
+				A067F0431D701DC2003140D6 /* JYOperationLoadMultImageViewController.m */,
 			);
 			name = JYOperation;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				A067F03D1D6E8C91003140D6 /* JYThreadLoadMutiImageViewController.m in Sources */,
 				A067F0201D6AF563003140D6 /* AppDelegate.m in Sources */,
 				A067F01D1D6AF563003140D6 /* main.m in Sources */,
+				A067F0441D701DC2003140D6 /* JYOperationLoadMultImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

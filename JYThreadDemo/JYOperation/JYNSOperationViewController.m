@@ -10,6 +10,7 @@
 
 static NSString * const Image_URL = @"http://img.blog.csdn.net/20160823161814146";
 
+
 typedef NS_ENUM(NSInteger, JYOpearationType) {
     JYOpearationTypeInvocation = 0,
     JYOpearationTypeBlock = 1
@@ -45,14 +46,21 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
 
 - (void)loadImageWithInvocationOperation {
     // 创建好操作以后并没有调用
+    NSOperationQueue *opQueue = [[NSOperationQueue alloc] init];
     NSInvocationOperation *inOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(loadImage) object:nil];
     
-    NSOperationQueue *opQueue = [[NSOperationQueue alloc] init];
     [opQueue addOperation:inOp];
 }
 
 - (void)loadImageWithBlockOperation {
     NSOperationQueue *opQueue = [[NSOperationQueue alloc] init];
+    // m1
+//    NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^{
+//        [self loadImage];
+//    }];
+//    [opQueue addOperation:blockOp];
+    
+    // m2
     [opQueue addOperationWithBlock:^{
         [self loadImage];
     }];
@@ -87,6 +95,7 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
     [button setTitle:@"加载中" forState:UIControlStateNormal];
     NSData *imageData = [self requestImageData];
     if (!imageData) {
+        // m3--GCD
         dispatch_async(dispatch_get_main_queue(), ^{
             [button setTitle:@"加载失败" forState:UIControlStateNormal];
         });
