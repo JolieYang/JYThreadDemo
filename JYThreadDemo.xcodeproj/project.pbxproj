@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A05338F91D71D8B300BD5214 /* JYGCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05338F81D71D8B300BD5214 /* JYGCDViewController.m */; };
 		A067F01D1D6AF563003140D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A067F01C1D6AF563003140D6 /* main.m */; };
 		A067F0201D6AF563003140D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A067F01F1D6AF563003140D6 /* AppDelegate.m */; };
 		A067F0231D6AF563003140D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067F0221D6AF563003140D6 /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A05338F71D71D8B300BD5214 /* JYGCDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYGCDViewController.h; path = JYGCD/JYGCDViewController.h; sourceTree = "<group>"; };
+		A05338F81D71D8B300BD5214 /* JYGCDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYGCDViewController.m; path = JYGCD/JYGCDViewController.m; sourceTree = "<group>"; };
 		A067F0181D6AF563003140D6 /* JYThreadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYThreadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A067F01C1D6AF563003140D6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A067F01E1D6AF563003140D6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +54,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A05338F61D71D89C00BD5214 /* JYGCD */ = {
+			isa = PBXGroup;
+			children = (
+				A05338F71D71D8B300BD5214 /* JYGCDViewController.h */,
+				A05338F81D71D8B300BD5214 /* JYGCDViewController.m */,
+			);
+			name = JYGCD;
+			sourceTree = "<group>";
+		};
 		A067F00F1D6AF563003140D6 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +82,7 @@
 		A067F01A1D6AF563003140D6 /* JYThreadDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A05338F61D71D89C00BD5214 /* JYGCD */,
 				A067F03E1D6FDB8D003140D6 /* JYOperation */,
 				A067F0351D6AF636003140D6 /* JYThreading */,
 				A067F01E1D6AF563003140D6 /* AppDelegate.h */,
@@ -185,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A05338F91D71D8B300BD5214 /* JYGCDViewController.m in Sources */,
 				A067F0411D6FE99F003140D6 /* JYNSOperationViewController.m in Sources */,
 				A067F0341D6AF631003140D6 /* JYNSThreadViewController.m in Sources */,
 				A067F0231D6AF563003140D6 /* ViewController.m in Sources */,
@@ -344,6 +358,7 @@
 				A067F0311D6AF563003140D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
