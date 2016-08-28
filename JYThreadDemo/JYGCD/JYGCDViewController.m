@@ -17,13 +17,20 @@ static NSString * const Base_URL = @"http://images.cnblogs.com/cnblogs_com/kensh
 @end
 
 @implementation JYGCDViewController
-- (IBAction)sequenceLoadImgAction:(id)sender {
+// 多线程加载图片
+- (IBAction)loadImageAction:(id)sender {
     [self loadImageWithMultiThread];
+}
+
+// 按顺序加载图片
+- (IBAction)sequenceLoadImgAction:(id)sender {
+    [self loadImageSequenceWithMultiThread];
     
 }
 - (void)loadImageAtIndex:(int)index {
     NSData *imageData = [self requestImageDataAtIndex:index];
     
+    // UI界面的更新最好同步
     dispatch_sync(dispatch_get_main_queue(), ^{
         [self updateImageWithData:imageData AtIndex:index];
     });
@@ -39,10 +46,18 @@ static NSString * const Base_URL = @"http://images.cnblogs.com/cnblogs_com/kensh
     UIImageView *imageView = self.imageViews[index];
     imageView.image = [UIImage imageWithData:imageData];
 }
-- (void)loadImageWithMultiThread {
+- (void)loadImageSequenceWithMultiThread {
     dispatch_queue_t serialQueue = dispatch_queue_create("sequence", DISPATCH_QUEUE_SERIAL);
     for (int i = 0; i < image_count; i++) {
         dispatch_async(serialQueue, ^{
+            [self loadImageAtIndex:i];
+        });
+    }
+}
+- (void)loadImageWithMultiThread {
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    for (int i = 0; i < image_count; i++) {
+        dispatch_async(globalQueue, ^{
             [self loadImageAtIndex:i];
         });
     }

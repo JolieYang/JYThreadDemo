@@ -92,15 +92,14 @@
                                     <segue destination="yTU-Xt-toU" kind="show" id="i0y-IP-I1v"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nyk-iH-wsG">
-                                <rect key="frame" x="16" y="342" width="288" height="30"/>
-                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="加载单张图片">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GCD:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awb-s4-L5G">
+                                <rect key="frame" x="16" y="313" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtm-rj-wJZ">
-                                <rect key="frame" x="16" y="380" width="288" height="30"/>
+                                <rect key="frame" x="16" y="342" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="加载多张图片">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,21 +108,13 @@
                                     <segue destination="tza-oA-dEs" kind="show" id="CEa-3o-4X5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GCD:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awb-s4-L5G">
-                                <rect key="frame" x="16" y="313" width="41" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Nyk-iH-wsG" firstAttribute="trailing" secondItem="h95-Im-z9L" secondAttribute="trailing" id="51Q-n0-cLZ"/>
                             <constraint firstItem="zpX-7t-Abm" firstAttribute="leading" secondItem="qwf-g6-d0y" secondAttribute="leadingMargin" id="8vl-ok-6Qh"/>
                             <constraint firstItem="jtm-rj-wJZ" firstAttribute="leading" secondItem="h95-Im-z9L" secondAttribute="leading" id="9wX-9e-ddE"/>
                             <constraint firstItem="TTX-xd-86R" firstAttribute="top" secondItem="rXw-cy-CUX" secondAttribute="bottom" constant="20" id="Aah-oX-KUL"/>
                             <constraint firstItem="h95-Im-z9L" firstAttribute="trailing" secondItem="hLC-6N-vOm" secondAttribute="trailing" id="Aqi-N6-g2i"/>
-                            <constraint firstItem="Nyk-iH-wsG" firstAttribute="leading" secondItem="h95-Im-z9L" secondAttribute="leading" id="CUa-Lc-8sa"/>
                             <constraint firstItem="Bcs-mX-xhk" firstAttribute="top" secondItem="wea-A6-nKg" secondAttribute="bottom" constant="8" id="K3G-rz-YDi"/>
                             <constraint firstItem="Bcs-mX-xhk" firstAttribute="trailing" secondItem="hLC-6N-vOm" secondAttribute="trailing" id="M14-7U-n65"/>
                             <constraint firstItem="hLC-6N-vOm" firstAttribute="trailing" secondItem="zpX-7t-Abm" secondAttribute="trailing" id="NdQ-vD-1pZ"/>
@@ -137,10 +128,9 @@
                             <constraint firstItem="hLC-6N-vOm" firstAttribute="leading" secondItem="zpX-7t-Abm" secondAttribute="leading" id="cdH-KR-3RG"/>
                             <constraint firstItem="h95-Im-z9L" firstAttribute="top" secondItem="Bcs-mX-xhk" secondAttribute="bottom" constant="8" id="dc0-Vb-Idz"/>
                             <constraint firstItem="Bcs-mX-xhk" firstAttribute="leading" secondItem="hLC-6N-vOm" secondAttribute="leading" id="k5H-Kw-rus"/>
-                            <constraint firstItem="Nyk-iH-wsG" firstAttribute="top" secondItem="awb-s4-L5G" secondAttribute="bottom" constant="8" id="k9N-Tk-Vmx"/>
-                            <constraint firstItem="jtm-rj-wJZ" firstAttribute="top" secondItem="Nyk-iH-wsG" secondAttribute="bottom" constant="8" id="n0f-b5-71f"/>
                             <constraint firstItem="zpX-7t-Abm" firstAttribute="trailing" secondItem="qwf-g6-d0y" secondAttribute="trailingMargin" id="pUp-5M-knC"/>
                             <constraint firstItem="wea-A6-nKg" firstAttribute="top" secondItem="hLC-6N-vOm" secondAttribute="bottom" constant="22" id="pgO-pT-VDe"/>
+                            <constraint firstItem="jtm-rj-wJZ" firstAttribute="top" secondItem="awb-s4-L5G" secondAttribute="bottom" constant="8" id="wJo-7b-9J9"/>
                             <constraint firstItem="hLC-6N-vOm" firstAttribute="top" secondItem="zpX-7t-Abm" secondAttribute="bottom" constant="8" id="xDZ-ki-8n4"/>
                         </constraints>
                     </view>
@@ -1077,21 +1067,24 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwC-Dj-wqq">
-                                <rect key="frame" x="16" y="412" width="288" height="30"/>
-                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="优先加载最后一张图片">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqO-Ys-jld">
-                                <rect key="frame" x="16" y="374" width="288" height="30"/>
+                                <rect key="frame" x="16" y="390" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="按顺序加载图片">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="sequenceLoadImgAction:" destination="tza-oA-dEs" eventType="touchUpInside" id="7OT-5Q-R2s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwC-Dj-wqq">
+                                <rect key="frame" x="16" y="352" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="加载图片">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadImageAction:" destination="tza-oA-dEs" eventType="touchUpInside" id="oyB-gX-BKa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1118,16 +1111,19 @@
                             <constraint firstItem="r7l-LK-G9S" firstAttribute="top" secondItem="ih0-av-w1x" secondAttribute="bottom" constant="8" id="Ush-WY-xRD"/>
                             <constraint firstItem="cyc-0c-41j" firstAttribute="centerX" secondItem="CcE-7Y-rgX" secondAttribute="centerX" id="XpB-Gy-8Ou"/>
                             <constraint firstItem="bKS-lB-1Er" firstAttribute="width" secondItem="LJF-DP-ssb" secondAttribute="width" id="Xsl-W0-Uqb"/>
+                            <constraint firstItem="VqO-Ys-jld" firstAttribute="trailing" secondItem="YwC-Dj-wqq" secondAttribute="trailing" id="XtY-ck-u05"/>
                             <constraint firstItem="5Vk-fc-gF4" firstAttribute="leading" secondItem="r7l-LK-G9S" secondAttribute="trailing" constant="8" id="ZUX-UZ-Ng1"/>
-                            <constraint firstItem="VqO-Ys-jld" firstAttribute="top" secondItem="cyc-0c-41j" secondAttribute="bottom" constant="46" id="a7X-0W-tjM"/>
+                            <constraint firstItem="VqO-Ys-jld" firstAttribute="top" secondItem="cyc-0c-41j" secondAttribute="bottom" constant="62" id="a7X-0W-tjM"/>
                             <constraint firstItem="cyc-0c-41j" firstAttribute="height" secondItem="5VO-kg-gPZ" secondAttribute="height" id="eAr-fR-RSU"/>
                             <constraint firstItem="5VO-kg-gPZ" firstAttribute="top" secondItem="LJF-DP-ssb" secondAttribute="bottom" constant="8" id="efA-Tf-QlY"/>
                             <constraint firstItem="bKS-lB-1Er" firstAttribute="centerX" secondItem="CcE-7Y-rgX" secondAttribute="centerX" id="gH7-zr-4ka"/>
+                            <constraint firstItem="YwC-Dj-wqq" firstAttribute="top" secondItem="cyc-0c-41j" secondAttribute="bottom" constant="24" id="i0e-Q0-QRj"/>
                             <constraint firstItem="bKS-lB-1Er" firstAttribute="height" secondItem="LJF-DP-ssb" secondAttribute="height" id="i9y-JN-4Wu"/>
                             <constraint firstItem="5Vk-fc-gF4" firstAttribute="centerX" secondItem="CcE-7Y-rgX" secondAttribute="centerX" id="ksM-GO-xq4"/>
                             <constraint firstItem="bKS-lB-1Er" firstAttribute="top" secondItem="5Vk-fc-gF4" secondAttribute="bottom" constant="8" id="pPk-qL-sS4"/>
                             <constraint firstItem="VqO-Ys-jld" firstAttribute="trailing" secondItem="CcE-7Y-rgX" secondAttribute="trailingMargin" id="pYC-gS-gzZ"/>
                             <constraint firstItem="2pL-pW-veb" firstAttribute="height" secondItem="r7l-LK-G9S" secondAttribute="height" id="uA2-A7-mQH"/>
+                            <constraint firstItem="VqO-Ys-jld" firstAttribute="leading" secondItem="YwC-Dj-wqq" secondAttribute="leading" id="xRh-sN-4Om"/>
                             <constraint firstItem="r7l-LK-G9S" firstAttribute="leading" secondItem="CcE-7Y-rgX" secondAttribute="leadingMargin" id="z6s-wR-sYK"/>
                             <constraint firstItem="LJF-DP-ssb" firstAttribute="top" secondItem="r7l-LK-G9S" secondAttribute="bottom" constant="8" id="zKN-Ns-sNH"/>
                             <constraint firstItem="izN-CD-BeM" firstAttribute="height" secondItem="5VO-kg-gPZ" secondAttribute="height" id="zZe-yd-vFo"/>
