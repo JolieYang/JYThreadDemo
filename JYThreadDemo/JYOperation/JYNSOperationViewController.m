@@ -6,10 +6,12 @@
 //  Copyright © 2016年 Jolie_Yang. All rights reserved.
 //
 
+// NSBlockOperation 与 NSInvocationOperation
+
 #import "JYNSOperationViewController.h"
 
 static NSString * const Image_URL = @"http://img.blog.csdn.net/20160823161814146";
-
+static NSString * const Flower_URL = @"http://img.blog.csdn.net/20160822174348226";
 
 typedef NS_ENUM(NSInteger, JYOpearationType) {
     JYOpearationTypeInvocation = 0,
@@ -23,6 +25,8 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
 @property (weak, nonatomic) IBOutlet UIButton *blockBtn;
 
 @property (nonatomic, assign) JYOpearationType type;
+@property (nonatomic, strong) NSOperationQueue *invocationQueue;
+@property (nonatomic, strong) NSInvocationOperation *operation;
 @end
 
 @implementation JYNSOperationViewController
@@ -37,6 +41,19 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
     self.type = JYOpearationTypeInvocation;
     [self loadImageWithInvocationOperation];
 }
+// 暂停
+- (IBAction)suspendAction:(id)sender {
+    [self.invocationQueue setSuspended:YES];
+}
+// 恢复
+- (IBAction)resumeAction:(id)sender {
+    [self.invocationQueue setSuspended:NO];
+}
+// 取消
+- (IBAction)cancelAction:(id)sender {
+//    [self.operation cancel];
+    [self.invocationQueue cancelAllOperations];
+}
 
 // 使用NSBlockOperation加载图片
 - (IBAction)blockOperationLoadPictureAction:(id)sender {
@@ -46,30 +63,38 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
 
 - (void)loadImageWithInvocationOperation {
     // 创建好操作以后并没有调用
-    NSOperationQueue *opQueue = [[NSOperationQueue alloc] init];
-    NSInvocationOperation *inOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(loadImage) object:nil];
+//    NSOperationQueue *opQueue = [[NSOperationQueue alloc] init];
+    self.invocationQueue = [[NSOperationQueue alloc] init];
+    self.operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(loadImage) object:nil];
     
-    [opQueue addOperation:inOp];
+    // 添加到队列后调用
+    [self.invocationQueue addOperation:self.operation];
 }
 
 - (void)loadImageWithBlockOperation {
     NSOperationQueue *opQueue = [[NSOperationQueue alloc] init];
     // m1
-//    NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^{
-//        [self loadImage];
-//    }];
-//    [opQueue addOperation:blockOp];
-    
-    // m2
-    [opQueue addOperationWithBlock:^{
+    NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^{
         [self loadImage];
     }];
+    [opQueue addOperation:blockOp];
+    
+    // m2
+//    [opQueue addOperationWithBlock:^{
+//        [self loadImage];
+//    }];
 }
 
 
 - (NSData *)requestImageData {
-    NSURL *url = [NSURL URLWithString:Image_URL];
-    NSData *imageData = [NSData dataWithContentsOfURL:url];
+    NSData *imageData;
+    if (self.type == JYOpearationTypeInvocation) {
+        NSURL *url = [NSURL URLWithString:Flower_URL];
+        imageData = [NSData dataWithContentsOfURL:url];
+    } else {
+        NSURL *url = [NSURL URLWithString:Image_URL];
+        imageData = [NSData dataWithContentsOfURL:url];
+    }
     
     return imageData;
 }
@@ -92,7 +117,9 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
         button = self.blockBtn;
     }
     
-    [button setTitle:@"加载中" forState:UIControlStateNormal];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [button setTitle:@"加载中" forState:UIControlStateNormal];
+    });
     NSData *imageData = [self requestImageData];
     if (!imageData) {
         // m3--GCD

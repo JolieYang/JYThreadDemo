@@ -13,7 +13,13 @@
 // 4. 子类化NSOperation,NSOperation是抽象基类，系统封装了NSBlockOperation和NSInvocationOperation。也可通过继承重写start或者main方法定制operations。start需管理线程状态, main无需管理线程状态，简单但不如start灵活
 // 特点： 1) 可添加操作依赖，保证操作的执行顺序。注意：操作依赖需在添加到队列前添加，不要添加循环操作依赖
 
+// Question List:
+// ?1. 在JYNSOperationViewController中， 对于一张图片的加载进行暂停，取消操作失败。目前还不知道原因 留着明天解决吧 -- 29th,August,2016
+
 // 小结： 使用NSOperationQueue 整体体验还是非常不错的，不论是NSThread，NSOperationQueue,GCD，苹果在推出更高抽象层级的API时并没有deprecated原先的API ,也就是表明不同的API是有相应的使用场景以及不同的限制。NSThread目前还不是很清楚它独有的使用场景。而OperationQueue与GCD是抽象层级相对高一点的API,基于队列而不是直接操作线程。对开发者真的是友好很多啊。NSOperationQueue是基于GCD的Cocoa抽象(ps: GCD是基于C的抽象API，效率会比较高一点), 其中NSOperationQueue有两点是非常友好的，1. 可以控制特定队列中并发的数目。2. 操作依赖这一特性可以相对友好的控制线程的执行顺序。
+// 总结(GCD/NSOperation):
+// GCD: 简单的开启线程/回到主线程,效率更高且简单
+// NSOperationQueue: 需根据用户需求管理线程时操作依赖能够很好的满足。
 
 #import "JYOperationLoadMultImageViewController.h"
 
