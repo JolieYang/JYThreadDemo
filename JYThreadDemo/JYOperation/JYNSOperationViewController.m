@@ -96,7 +96,7 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
     NSData *imageData = [self requestImageData];
     if (!imageData) {
         // m3--GCD
-        dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
             [button setTitle:@"加载失败" forState:UIControlStateNormal];
         });
         return;
@@ -104,7 +104,7 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
     
     // m1--NSThread
 //    [self performSelectorOnMainThread:@selector(updateImage:) withObject:imageData waitUntilDone:YES];
-    // m2--NSOperation
+    // m2--NSOperationQueue
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [self updateImage:imageData];
     }];

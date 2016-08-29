@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VsW-eB-qbv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VsW-eB-qbv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -479,25 +479,6 @@
             </objects>
             <point key="canvasLocation" x="1048" y="-886"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="wN7-4X-kaz">
-            <objects>
-                <viewController id="KWU-UE-k3a" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eu5-c9-Tzw"/>
-                        <viewControllerLayoutGuide type="bottom" id="N1J-u7-mMb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oX9-VF-uxg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LQM-7D-uvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="192" y="485"/>
-        </scene>
         <!--NSOperatin加载一张图片-->
         <scene sceneID="62C-18-kx1">
             <objects>
@@ -761,6 +742,36 @@
                                     <action selector="loadImageAction:" destination="yTU-Xt-toU" eventType="touchUpInside" id="sap-Rq-oeY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58R-TH-b7R">
+                                <rect key="frame" x="16" y="450" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="暂停">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="suspendAction:" destination="yTU-Xt-toU" eventType="touchUpInside" id="4tx-zK-uHl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPw-Ls-0Eb">
+                                <rect key="frame" x="16" y="488" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="取消">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelAction:" destination="yTU-Xt-toU" eventType="touchUpInside" id="ILc-nh-NRy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sj-xy-ETo">
+                                <rect key="frame" x="16" y="526" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="恢复">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resumeAction:" destination="yTU-Xt-toU" eventType="touchUpInside" id="kE6-xV-qY9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -824,102 +835,6 @@
             </objects>
             <point key="canvasLocation" x="1048" y="-222"/>
         </scene>
-        <!--GCD加载一张图片-->
-        <scene sceneID="goE-KW-c4d">
-            <objects>
-                <viewController id="eoB-C2-jUY" customClass="JYNSOperationViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WWe-jg-PUv"/>
-                        <viewControllerLayoutGuide type="bottom" id="K0Z-Ow-pgc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eIW-GG-e4F">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="XFL-g3-Rso">
-                                <rect key="frame" x="70" y="84" width="180" height="170"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="Ckf-Tl-W7g"/>
-                                    <constraint firstAttribute="height" constant="170" id="Sw4-WJ-toI"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vO-h2-fXw">
-                                <rect key="frame" x="16" y="262" width="288" height="30"/>
-                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="wMX-wN-C4N"/>
-                                </constraints>
-                                <state key="normal" title="InvocationOperation加载图片">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="invocationOperationLoadPictureAction:" destination="eoB-C2-jUY" eventType="touchUpInside" id="9C3-aU-vyE"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="QJi-pb-1rY">
-                                <rect key="frame" x="70" y="340" width="180" height="170"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="SVv-fm-MVZ"/>
-                                    <constraint firstAttribute="width" constant="250" id="ey4-OJ-fUF"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="SVv-fm-MVZ"/>
-                                        <exclude reference="ey4-OJ-fUF"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbz-GB-wJe">
-                                <rect key="frame" x="16" y="518" width="288" height="30"/>
-                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="BlockOperation加载图片">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="blockOperationLoadPictureAction:" destination="eoB-C2-jUY" eventType="touchUpInside" id="deV-0a-h39"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="vbz-GB-wJe" firstAttribute="top" secondItem="QJi-pb-1rY" secondAttribute="bottom" constant="8" id="00e-je-xl9"/>
-                            <constraint firstItem="XFL-g3-Rso" firstAttribute="top" secondItem="WWe-jg-PUv" secondAttribute="bottom" constant="20" id="2uW-qp-Pyg"/>
-                            <constraint firstItem="QJi-pb-1rY" firstAttribute="width" secondItem="XFL-g3-Rso" secondAttribute="width" id="3yd-wB-K4O"/>
-                            <constraint firstItem="QJi-pb-1rY" firstAttribute="centerX" secondItem="eIW-GG-e4F" secondAttribute="centerX" id="G6q-s2-wyw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vbz-GB-wJe" secondAttribute="trailing" id="GRT-3y-qHQ"/>
-                            <constraint firstItem="4vO-h2-fXw" firstAttribute="trailing" secondItem="eIW-GG-e4F" secondAttribute="trailingMargin" id="NfK-55-RpZ"/>
-                            <constraint firstItem="4vO-h2-fXw" firstAttribute="top" secondItem="XFL-g3-Rso" secondAttribute="bottom" constant="8" symbolic="YES" id="Pju-Mj-rJs"/>
-                            <constraint firstItem="4vO-h2-fXw" firstAttribute="leading" secondItem="eIW-GG-e4F" secondAttribute="leadingMargin" id="QKM-pC-11h"/>
-                            <constraint firstItem="4vO-h2-fXw" firstAttribute="top" secondItem="XFL-g3-Rso" secondAttribute="bottom" constant="8" id="RbG-04-H4W"/>
-                            <constraint firstItem="4vO-h2-fXw" firstAttribute="centerY" secondItem="eIW-GG-e4F" secondAttribute="centerY" id="d1J-9m-lwy"/>
-                            <constraint firstItem="XFL-g3-Rso" firstAttribute="centerX" secondItem="4vO-h2-fXw" secondAttribute="centerX" id="eG2-0F-z5m"/>
-                            <constraint firstItem="vbz-GB-wJe" firstAttribute="leading" secondItem="eIW-GG-e4F" secondAttribute="leadingMargin" id="fE8-0r-Kwy"/>
-                            <constraint firstItem="XFL-g3-Rso" firstAttribute="leading" secondItem="eIW-GG-e4F" secondAttribute="leadingMargin" id="g1W-AC-628"/>
-                            <constraint firstItem="4vO-h2-fXw" firstAttribute="centerX" secondItem="eIW-GG-e4F" secondAttribute="centerX" id="o4C-cX-2St"/>
-                            <constraint firstItem="QJi-pb-1rY" firstAttribute="top" secondItem="4vO-h2-fXw" secondAttribute="bottom" constant="48" id="opz-qf-p7R"/>
-                            <constraint firstItem="QJi-pb-1rY" firstAttribute="height" secondItem="XFL-g3-Rso" secondAttribute="height" id="rXH-fy-M5j"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="g1W-AC-628"/>
-                                <exclude reference="d1J-9m-lwy"/>
-                                <exclude reference="Pju-Mj-rJs"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="GCD加载一张图片" id="6Yo-Ll-cFk"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="blockBtn" destination="vbz-GB-wJe" id="Rke-CH-s3p"/>
-                        <outlet property="imageView" destination="XFL-g3-Rso" id="JRm-mJ-BCJ"/>
-                        <outlet property="invocationBtn" destination="4vO-h2-fXw" id="cO1-cM-fnl"/>
-                        <outlet property="secondImageView" destination="QJi-pb-1rY" id="bLr-Ms-Lkb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fMe-7e-Cq5" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="549" y="1036"/>
-        </scene>
         <!--GCD加载多张图片-->
         <scene sceneID="6Xs-uc-iHG">
             <objects>
@@ -955,8 +870,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="nb4-36-n9d"/>
                                         <exclude reference="Gzw-g3-cJX"/>
+                                        <exclude reference="nb4-36-n9d"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -970,10 +885,10 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="kQ0-t8-TZW"/>
+                                        <exclude reference="6UC-T9-Oc5"/>
                                         <exclude reference="cKK-kt-bhc"/>
                                         <exclude reference="dND-8N-gXp"/>
-                                        <exclude reference="6UC-T9-Oc5"/>
+                                        <exclude reference="kQ0-t8-TZW"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -987,8 +902,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="UD3-Fp-rLW"/>
                                         <exclude reference="8fA-AN-b0s"/>
+                                        <exclude reference="UD3-Fp-rLW"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -1016,9 +931,9 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="5Ye-lj-C5f"/>
-                                        <exclude reference="ltH-bl-GBy"/>
                                         <exclude reference="8gZ-gj-7bc"/>
                                         <exclude reference="Xgv-vm-7en"/>
+                                        <exclude reference="ltH-bl-GBy"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -1032,8 +947,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="qSg-De-9dK"/>
                                         <exclude reference="7u6-tQ-yQG"/>
+                                        <exclude reference="qSg-De-9dK"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -1061,8 +976,8 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="0IS-i9-kHK"/>
-                                        <exclude reference="Nan-KP-qX6"/>
                                         <exclude reference="F3V-ks-8R6"/>
+                                        <exclude reference="Nan-KP-qX6"/>
                                         <exclude reference="h0M-c5-76B"/>
                                     </mask>
                                 </variation>
