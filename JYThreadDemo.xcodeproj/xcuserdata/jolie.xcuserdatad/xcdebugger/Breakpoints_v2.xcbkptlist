@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JYThreadDemo/JYOperation/JYNSOperationViewController.m"
-            timestampString = "494133346.861649"
+            timestampString = "494145425.623024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-requestImageData"
             landmarkType = "5">
          </BreakpointContent>
