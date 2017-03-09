@@ -14,6 +14,8 @@ static NSString * const Base_URL = @"http://images.cnblogs.com/cnblogs_com/kensh
 @interface JYGCDViewController()
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *imageViews;
 @property (weak, nonatomic) IBOutlet UIButton *loadBtn;
+
+@property (nonatomic, strong) dispatch_queue_t serialQueue;
 @end
 
 @implementation JYGCDViewController
@@ -26,6 +28,10 @@ static NSString * const Base_URL = @"http://images.cnblogs.com/cnblogs_com/kensh
 - (IBAction)sequenceLoadImgAction:(id)sender {
     [self loadImageSequenceWithMultiThread];
     
+}
+// 暂停加载
+- (IBAction)suspendLoadImageAction:(id)sender {
+    dispatch_suspend(self.serialQueue);
 }
 - (void)loadImageAtIndex:(int)index {
     NSData *imageData = [self requestImageDataAtIndex:index];
@@ -47,9 +53,9 @@ static NSString * const Base_URL = @"http://images.cnblogs.com/cnblogs_com/kensh
     imageView.image = [UIImage imageWithData:imageData];
 }
 - (void)loadImageSequenceWithMultiThread {
-    dispatch_queue_t serialQueue = dispatch_queue_create("sequence", DISPATCH_QUEUE_SERIAL);
+    self.serialQueue = dispatch_queue_create("sequence", DISPATCH_QUEUE_SERIAL);
     for (int i = 0; i < image_count; i++) {
-        dispatch_async(serialQueue, ^{
+        dispatch_async(self.serialQueue, ^{
             [self loadImageAtIndex:i];
         });
     }
