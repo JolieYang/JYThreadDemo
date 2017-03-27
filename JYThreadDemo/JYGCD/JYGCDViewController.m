@@ -6,6 +6,7 @@
 //  Copyright © 2016年 Jolie_Yang. All rights reserved.
 //
 
+// 如何获取到queue中加载图片的状态，比如是否全部加载完毕，还是加载了部分图片等。 -- 8th,March,2017
 #import "JYGCDViewController.h"
 
 static int image_count = 9;
@@ -19,6 +20,12 @@ static NSString * const Base_URL = @"http://images.cnblogs.com/cnblogs_com/kensh
 @end
 
 @implementation JYGCDViewController
+- (void)testPrivateMethod {
+    NSLog(@"test Private Method");
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
 // 多线程加载图片
 - (IBAction)loadImageAction:(id)sender {
     [self loadImageWithMultiThread];
@@ -33,11 +40,16 @@ static NSString * const Base_URL = @"http://images.cnblogs.com/cnblogs_com/kensh
 - (IBAction)suspendLoadImageAction:(id)sender {
     dispatch_suspend(self.serialQueue);
 }
+// 恢复加载
+- (IBAction)resumeLoadImageAction:(id)sender {
+    dispatch_resume(self.serialQueue);
+}
+
 - (void)loadImageAtIndex:(int)index {
     NSData *imageData = [self requestImageDataAtIndex:index];
     
     // UI界面的更新最好同步
-    dispatch_sync(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         [self updateImageWithData:imageData AtIndex:index];
     });
 }
@@ -53,7 +65,9 @@ static NSString * const Base_URL = @"http://images.cnblogs.com/cnblogs_com/kensh
     imageView.image = [UIImage imageWithData:imageData];
 }
 - (void)loadImageSequenceWithMultiThread {
-    self.serialQueue = dispatch_queue_create("sequence", DISPATCH_QUEUE_SERIAL);
+    if (!self.serialQueue) {
+        self.serialQueue = dispatch_queue_create("sequence", DISPATCH_QUEUE_SERIAL);
+    }
     for (int i = 0; i < image_count; i++) {
         dispatch_async(self.serialQueue, ^{
             [self loadImageAtIndex:i];
@@ -68,4 +82,8 @@ static NSString * const Base_URL = @"http://images.cnblogs.com/cnblogs_com/kensh
         });
     }
 }
+@end
+@implementation JYGCDViewController (Other)
+
+
 @end

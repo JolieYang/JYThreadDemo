@@ -23,3 +23,7 @@
 
 @interface JYGCDViewController : UIViewController
 @end
+
+@interface JYGCDViewController (Other)
+- (void)testPrivateMethod;
+@end

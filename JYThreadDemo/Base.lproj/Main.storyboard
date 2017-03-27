@@ -485,7 +485,7 @@
         <!--NSOperatin加载一张图片-->
         <scene sceneID="62C-18-kx1">
             <objects>
-                <viewController id="PyI-x5-GJG" customClass="JYNSOperationViewController" sceneMemberID="viewController">
+                <viewController id="PyI-x5-GJG" customClass="JYNSOperationLoadSingleImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3zd-AY-QU1"/>
                         <viewControllerLayoutGuide type="bottom" id="QSN-0Y-8gk"/>
@@ -1069,6 +1069,16 @@
                                 </state>
                                 <connections>
                                     <action selector="suspendLoadImageAction:" destination="tza-oA-dEs" eventType="touchUpInside" id="Fbt-kV-VrO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOK-tl-I9Y">
+                                <rect key="frame" x="16" y="466" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.64313725489999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="恢复加载">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resumeLoadImageAction:" destination="tza-oA-dEs" eventType="touchUpInside" id="EBa-zs-edQ"/>
                                 </connections>
                             </button>
                         </subviews>

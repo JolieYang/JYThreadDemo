@@ -8,7 +8,9 @@
 
 // NSBlockOperation 与 NSInvocationOperation
 
-#import "JYNSOperationViewController.h"
+#import "JYNSOperationLoadSingleImageViewController.h"
+#import "JYGCDViewController.h"
+#import <objc/runtime.h>
 
 static NSString * const Image_URL = @"http://img.blog.csdn.net/20160823161814146";
 static NSString * const Flower_URL = @"http://img.blog.csdn.net/20160822174348226";
@@ -18,7 +20,7 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
     JYOpearationTypeBlock = 1
 };
 
-@interface JYNSOperationViewController ()
+@interface JYNSOperationLoadSingleImageViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *secondImageView;
 @property (weak, nonatomic) IBOutlet UIButton *invocationBtn;
@@ -29,14 +31,14 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
 @property (nonatomic, strong) NSInvocationOperation *operation;
 @end
 
-@implementation JYNSOperationViewController
+@implementation JYNSOperationLoadSingleImageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-// 使用NSInvocationOperation加载图片
+// 1.使用NSInvocationOperation加载图片
 - (IBAction)invocationOperationLoadPictureAction:(id)sender {
     self.type = JYOpearationTypeInvocation;
     [self loadImageWithInvocationOperation];
@@ -55,7 +57,7 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
     [self.invocationQueue cancelAllOperations];
 }
 
-// 使用NSBlockOperation加载图片
+// 2.使用NSBlockOperation加载图片
 - (IBAction)blockOperationLoadPictureAction:(id)sender {
     self.type = JYOpearationTypeBlock;
     [self loadImageWithBlockOperation];
@@ -135,6 +137,11 @@ typedef NS_ENUM(NSInteger, JYOpearationType) {
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [self updateImage:imageData];
     }];
+    
+    
 }
 
 @end
+
+
+

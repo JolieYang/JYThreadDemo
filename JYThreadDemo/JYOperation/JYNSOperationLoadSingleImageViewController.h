@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JYNSOperationViewController : UIViewController
+@interface JYNSOperationLoadSingleImageViewController : UIViewController
 
 @end
